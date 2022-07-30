@@ -1,3 +1,4 @@
+require 'pry'
 #OOP IN RUBY
 
     #creating a class allows for user to create instances of that class
@@ -121,6 +122,78 @@
     #     end 
 
     # end
+
+
+    #CLASS VARIABLES AND CLASS METHODS
+        #DIfference between instance variable and class variable 
+            #Instance variable: is responsible for holdong information regarding AN INSTANCE, available in scope for ALL instance methods in class
+            #Class Variable: is accesible to the ENTIRE CLASS (class scope), it is called on the class itself(not the instance)
+                #Class variable are used to store information regarding the the class as a whole
+                    #To define a class variable use: @@class_variable  (can be set equal to any data type)
+
+                #Class methods enact behaviors that belong to the whole class
+                    #in order to access the class variable you need to create a class method:
+                        # def self.class_method_name
+                        #     @@class_variable
+                        # end
+            #EXAMPLE:
+                # class DVD
+                #     @@dvd_count = 0;
+
+                #     def self.count #class method named count
+                      #  @@dvd_count   #we are going to return our class variable dvd_count
+                    #end
+                #end
+
+               # puts DVD.count #will return the value of our class variable, which is currently 0
+
+                #Now lets add to our dvd ccount whenever a new dvd is made, we can do that with the initialize method
+                # class Dvd
+                #     @@dvd_count = 0;
+
+                #     def initialize
+                #         @@dvd_count += 1  #now whenever we create a new instance of DVD it will add one to our ccount
+                #     end
+
+                #     def self.count 
+                #         @@dvd_count   #count will allow us to call Dvd.count
+                #     end
+                    
+
+                # end
+                
+                # d1 = Dvd.new #now we add a dvd 
+                # puts Dvd.count #and the count will be updated
+
+            #LETS PUT EVERYTHING TOGETHER 
+            class Actor
+                @@all_actors= [] #class variable to hold our array of actors
+
+                attr_accessor :name #getter and setter
+
+                def initialize(name)
+                    @name = name
+                    @@all_actors << self #add new instance to the actor array 
+                end
+
+                def self.all  #print our actor array
+                    @@all_actors
+                end
+
+                def self.print_all_names  #loop through array to print the name for each actor
+                    @@all_actors.each do |actor|
+                        puts actor.name
+                    end
+                end
+            end
+            Actor.new("Chris Rock") #add new actors
+            Actor.new("Brad Pitt")
+            puts Actor.all #print acctor array
+            puts Actor.print_all_names #print only actor names
+
+                
+                
+
 
 
 
