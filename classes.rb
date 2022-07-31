@@ -77,6 +77,7 @@ require 'pry'
     # puts p1.show_self #will return the object id that self is currently assigned to. In this case it is p1 because we are calling the show_self method ON p1, SO p1 is the one being put through the method.
 
     #now lets try another example
+            ##UNCOMMENT CODE BELOW
     # class Person
     #     attr_accessor :name, :mom
 
@@ -102,9 +103,11 @@ require 'pry'
     # p1.whos_ur_mama("Janet") #updates our Person's mom attr and says the name of the mom
     # puts p1.mom #prints Janet
 
+            ##END CODE 
+
     #IMPLICIT RECEIVER with self
     #consider the above example:
-
+            ##UNCOMMENT CODE BELOW
     # class Person
     #     attr_accessor :name, :mom
 
@@ -122,6 +125,7 @@ require 'pry'
     #     end 
 
     # end
+            ##END CODE 
 
 
     #CLASS VARIABLES AND CLASS METHODS
@@ -137,6 +141,7 @@ require 'pry'
                         #     @@class_variable
                         # end
             #EXAMPLE:
+                    ##UNCOMMENT CODE BELOW
                 # class DVD
                 #     @@dvd_count = 0;
 
@@ -146,8 +151,10 @@ require 'pry'
                 #end
 
                # puts DVD.count #will return the value of our class variable, which is currently 0
+                    ##END CODE 
 
                 #Now lets add to our dvd ccount whenever a new dvd is made, we can do that with the initialize method
+                    ##UNCOMMENT CODE BELOW
                 # class Dvd
                 #     @@dvd_count = 0;
 
@@ -164,32 +171,35 @@ require 'pry'
                 
                 # d1 = Dvd.new #now we add a dvd 
                 # puts Dvd.count #and the count will be updated
+                    ##END CODE
 
             #LETS PUT EVERYTHING TOGETHER 
-            class Actor
-                @@all_actors= [] #class variable to hold our array of actors
 
-                attr_accessor :name #getter and setter
+            ###UNCOMMENT CODE BELOW
+            # class Actor
+            #     @@all_actors= [] #class variable to hold our array of actors
 
-                def initialize(name)
-                    @name = name
-                    @@all_actors << self #add new instance to the actor array 
-                end
+            #     attr_accessor :name #getter and setter
 
-                def self.all  #print our actor array
-                    @@all_actors
-                end
+            #     def initialize(name)
+            #         @name = name
+            #         @@all_actors << self #add new instance to the actor array 
+            #     end
 
-                def self.print_all_names  #loop through array to print the name for each actor
-                    @@all_actors.each do |actor|
-                        puts actor.name
-                    end
-                end
-            end
-            Actor.new("Chris Rock") #add new actors
-            Actor.new("Brad Pitt")
-            puts Actor.all #print acctor array
-            puts Actor.print_all_names #print only actor names
+            #     def self.all  #print our actor array
+            #         @@all_actors
+            #     end
+
+            #     def self.print_all_names  #loop through array to print the name for each actor
+            #         @@all_actors.each do |actor|
+            #             puts actor.name
+            #         end
+            #     end
+            # end
+            # Actor.new("Chris Rock") #add new actors
+            # Actor.new("Brad Pitt")
+            # puts Actor.all #print acctor array
+            # puts Actor.print_all_names #print only actor names
 
                 
                 
